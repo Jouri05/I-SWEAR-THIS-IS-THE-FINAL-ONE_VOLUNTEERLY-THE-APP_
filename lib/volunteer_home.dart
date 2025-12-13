@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+
 import 'add_task_screen.dart';
+import 'task_list_screen.dart';
 
 class VolunteerHome extends StatelessWidget {
   const VolunteerHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> menuItems = [
-      {"label": "Add Task", "screen": const AddTaskScreen()},
-      {"label": "Task List", "screen": null},
-      {"label": "Achievements", "screen": null},
-      {"label": "Availability", "screen": null},
-      {"label": "Preferences", "screen": null},
+    final items = <_MenuItem>[
+      _MenuItem('Add Task', (_) => const AddTaskScreen()),
+      _MenuItem('Task List', (_) => const TaskListScreen()),
+      _MenuItem(
+        'Achievements',
+        (_) => const _ComingSoonScreen(title: 'Achievements'),
+      ),
+      _MenuItem(
+        'Availability',
+        (_) => const _ComingSoonScreen(title: 'Availability'),
+      ),
+      _MenuItem(
+        'Preferences',
+        (_) => const _ComingSoonScreen(title: 'Preferences'),
+      ),
     ];
 
     return Scaffold(
@@ -29,7 +40,7 @@ class VolunteerHome extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              ...menuItems.map((item) {
+              ...items.map((item) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 20),
                   child: SizedBox(
@@ -42,18 +53,16 @@ class VolunteerHome extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      onPressed: item["screen"] == null
-                          ? () {}
-                          : () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => item["screen"],
-                                ),
-                              );
-                            },
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (ctx) => item.builder(ctx),
+                          ),
+                        );
+                      },
                       child: Text(
-                        item["label"],
+                        item.label,
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.black,
@@ -67,6 +76,25 @@ class VolunteerHome extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _MenuItem {
+  final String label;
+  final Widget Function(BuildContext) builder;
+  _MenuItem(this.label, this.builder);
+}
+
+class _ComingSoonScreen extends StatelessWidget {
+  final String title;
+  const _ComingSoonScreen({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: const Center(child: Text('Coming soon...')),
     );
   }
 }

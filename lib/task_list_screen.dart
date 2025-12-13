@@ -40,6 +40,13 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 return ListTile(
                   title: Text(t.title),
                   subtitle: t.description.isEmpty ? null : Text(t.description),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () async {
+                      await TaskStorage.deleteTask(t.id);
+                      await _reload();
+                    },
+                  ),
                 );
               },
             ),
