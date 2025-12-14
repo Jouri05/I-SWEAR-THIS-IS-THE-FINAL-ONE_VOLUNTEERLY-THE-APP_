@@ -32,7 +32,7 @@ class VolunteerHome extends StatelessWidget {
           child: Column(
             children: [
               const Text(
-                "Volunteer",
+                "Volunteerly",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
