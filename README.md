@@ -4,7 +4,7 @@ This repository contains part 1 of the fully implemented feature of the developm
 
 Volunteerly is an application designed to help users manage their volunteering activities, track time commitments, and reduce burnout.
 
-This part of the project focuses on implementing the Task list feature. The Add Task feature was initially designed during Log Task 3 but during the development phase this feature was extended so that any task added by the user is automatically saved and displayed in the Task List screen where the user can then check or delete the events off. 
+This part of the project focuses on implementing the Task list feature. The Add Task feature was initially designed during Log Task 3 but during the development phase for the demo this feature was extended so that any task added by the user is automatically saved and displayed in the Task List screen where the user can then check or delete the events off. 
 
 Implemented Features
 - role selection screen, the user picks between being a coordinator or a volunteer
