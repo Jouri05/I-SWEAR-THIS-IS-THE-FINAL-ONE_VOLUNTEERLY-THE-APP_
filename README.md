@@ -2,7 +2,7 @@ Volunteerly: Task list Feature
 
 This repository contains part 1 of the fully implemented feature of the development work for the Group Computing Project.
 
-Volunteerly is a volunteer engagement application designed to help users manage their volunteering activities, track time commitments, and reduce burnout.
+Volunteerly is an application designed to help users manage their volunteering activities, track time commitments, and reduce burnout.
 
 This part of the project focuses on implementing the Task list feature. The Add Task feature was initially designed during Log Task 3 but during the development phase this feature was extended so that any task added by the user is automatically saved and displayed in the Task List screen where the user can then check or delete the events off. 
 
